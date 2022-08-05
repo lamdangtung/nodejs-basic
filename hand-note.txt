@@ -1,0 +1,4 @@
++ Nodejs không phải là một framework mà là một platform.
++ Học nodejs thực chất là việc học code javascript ở phía backend.
++ Javascipt => C++ => Assembly bằng Engine V8
++ Nodejs framework: Express, SocketIO
