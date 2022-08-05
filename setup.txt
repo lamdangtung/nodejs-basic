@@ -1,0 +1,2 @@
++ Tạo DB, Bảng user trước khi chạy project
++ Phần upload file đang bị lỗi cần phải nghiên cứu và fix lỗi thêm
