@@ -9,26 +9,22 @@ let getAllUsers = (req, res) => {
     var data = [];
     connection.query(
         'SELECT * FROM `users`',
-        function(err, results, fields) {
-        //   console.log(results);
-        results.map((row) => {
-            data.push(
-                {
-                    id:row.id,
-                    email: row.email,
-                    firstName: row.firstName,
-                    lastName: row.lastName,
-                    address: row.address
-                }
-            )
-          })
-          console.log(data);
-
-        return res.render("index.ejs", {"dataUser" : JSON.stringify(data)});
-          
+        function (err, results, fields) {
+            results.map((row) => {
+                data.push(
+                    {
+                        id: row.id,
+                        email: row.email,
+                        firstName: row.firstName,
+                        lastName: row.lastName,
+                        address: row.address
+                    }
+                )
+            })
+            return res.render("index.ejs", { "dataUser": data });
         }
-      );
-    
+    );
+
 }
 
 module.exports = {
