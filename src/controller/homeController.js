@@ -1,33 +1,21 @@
-import { json } from 'body-parser';
-import connection from '../configs/connectDB'
 
-let getHomePage = (req, res) => {
-    return res.render("index.ejs");
+import pool from '../configs/connectDB'
+
+let getAllUsers = async (req, res) =>  {
+    const [rows, fields] = await pool.execute('SELECT * FROM `users`');
+    return res.render("index.ejs", { "dataUser": rows });
 }
 
-let getAllUsers = (req, res) => {
-    var data = [];
-    connection.query(
-        'SELECT * FROM `users`',
-        function (err, results, fields) {
-            results.map((row) => {
-                data.push(
-                    {
-                        id: row.id,
-                        email: row.email,
-                        firstName: row.firstName,
-                        lastName: row.lastName,
-                        address: row.address
-                    }
-                )
-            })
-            return res.render("index.ejs", { "dataUser": data });
-        }
-    );
+let getDetailUser = async (req, res) => {
 
+    let userId = req.params["userId"];
+    console.log(userId);
+    const [rows, fields] = await pool.execute('SELECT * FROM `users` WHERE users.id = ?', [userId]);
+    console.log(rows);
+    return res.render("detail.ejs", { "user": rows[0]});
 }
 
 module.exports = {
-    getHomePage,
-    getAllUsers
+    getAllUsers,
+    getDetailUser
 }
