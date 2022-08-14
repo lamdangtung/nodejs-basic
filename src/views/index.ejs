@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Engine</title>
+  <title>User Management</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -38,7 +38,7 @@
             <%= dataUser[i].lastName %>
           </td>
           <td>
-            <button type="button">Detail</button>
+            <a href="/user/<%= dataUser[i].id %>" target="_blank">Detail</a>
             <button type="button">Edit</button>
             <button type="button">Delete</button>
           </td>
@@ -46,6 +46,34 @@
         <% } %>
     </tbody>
   </table>
+  <div class="add_new_user">
+    <div>Add new user</div>
+    <form action="/user" method="post">
+      <div>
+        <label>First Name: </label>
+        <input type="text" name="firstName">
+      </div>
+
+      <div>
+        <label>Last Name: </label>
+        <input type="text" name="lastName">
+      </div>
+
+      <div>
+        <label>Email: </label>
+        <input type="email" name="email">
+      </div>
+
+      <div>
+        <label>Address: </label>
+        <input type="text" name="address">
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

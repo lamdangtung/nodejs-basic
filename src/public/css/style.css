@@ -43,3 +43,19 @@ body {
   }
   
   tr:hover {background-color: coral;}
+
+
+  .add_new_user{
+    display: block;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .add_new_user label{
+    display: block;
+  }
+
+  .add_new_user button{
+    margin-top: 15px;
+    cursor: pointer;
+  }
